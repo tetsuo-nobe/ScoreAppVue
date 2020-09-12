@@ -13,6 +13,7 @@ phases:
     commands:
       - echo Installing source NPM dependencies...!
       #- npm install --prefix ./front-vue
+      - npm install
   build:
     commands:
       - echo build start
