@@ -12,17 +12,18 @@ phases:
   pre_build:
     commands:
       - echo Installing source NPM dependencies...!
-      - npm install --prefix ./front-vue
+      #- npm install --prefix ./front-vue
   build:
     commands:
       - echo build start
-      - npm --prefix ./front-vue run build
+      #- npm --prefix ./front-vue run build
+      - npm  run build
       - echo build completed
   post_build:
     commands:
       - echo Delete S3 Bucket object...
       - aws s3 rm s3://${S3_BUCKET_NAME} --recursive
-      - aws s3 sync ./front-vue/dist/  s3://${S3_BUCKET_NAME} 
+      - aws s3 sync ./dist/  s3://${S3_BUCKET_NAME} 
 #artifacts:
 #  files:
 #    - '**/*'
